@@ -22,7 +22,6 @@ class Item:
         self.price = price
         self.quantity = quantity
         self.all.append(self)
-        print(self.__name)
 
     @property
     def name(self):
