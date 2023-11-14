@@ -31,8 +31,19 @@ def test_class_2():
     assert item_class_2.quantity == 5
 
 
-def test_name_len():
-    item_len = Item('Ноутбук', 100000, 5)
-    item_len.name = 'СуперНоутбук'
-    assert item_len.name == 'СуперНоутб'
+def test_name_len(item_class):
+    item_class.name = 'СуперНоутбук'
+    assert item_class.name == 'СуперНоутб'
+    item_class.name = 'Ноутбук'
+    assert item_class.name == 'Ноутбук'
 
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
+    assert len(Item.all) == 5  # в файле 5 записей с данными по товарам
+
+
+def test_string_to_number():
+    assert Item.string_to_number('5') == 5
+    assert Item.string_to_number('5.0') == 5
+    assert Item.string_to_number('5.5') == 5
