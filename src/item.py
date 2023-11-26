@@ -96,3 +96,12 @@ class Item:
         else:
             string = int(float(string))
         return string
+
+    def __add__(self, other):
+        """
+        метод для сложения экземплятор классов по количеству товаров, который выполняет проверку для сложения только
+        экземпляров связанных классов
+        """
+        if issubclass(other.__class__, self.__class__):
+            return self.quantity + other.quantity
+        return None
