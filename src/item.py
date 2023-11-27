@@ -1,8 +1,9 @@
 import csv
 import os
+from abc import ABC, abstractmethod
 
 
-class Item:
+class Item(ABC):
     """
     Класс для представления товара в магазине.
     """
@@ -22,6 +23,7 @@ class Item:
         self.price = price
         self.quantity = quantity
         self.all.append(self)
+        super().__init__()
 
     @property
     def name(self):
