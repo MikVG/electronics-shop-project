@@ -16,3 +16,11 @@ def test_class(phone_class):
 def test_add_quantity(phone_class):
     item = Item('Ноутбук', 100000, 5)
     assert item + phone_class == 12
+
+def test_num_of_sim(phone_class):
+    phone_class.number_of_sim = 0
+    assert ("Количество физических SIM-карт должно быть целым числом больше нуля."
+            == "Количество физических SIM-карт должно быть целым числом больше нуля.")
+    phone_class.number_of_sim = 1.5
+    assert ("Количество физических SIM-карт должно быть целым числом больше нуля."
+            == "Количество физических SIM-карт должно быть целым числом больше нуля.")

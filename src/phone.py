@@ -11,7 +11,25 @@ class Phone(Item):
         создание экземпляра класса Phone, который наследует поля из класса Item: name, price, quantity
         """
         super().__init__(name, price, quantity)
-        self.number_of_sim = number_of_sim
+        self.__number_of_sim = number_of_sim
+
+    @property
+    def number_of_sim(self):
+        """
+        геттер для приватного атрибута __number_of_sim класса Phone
+        """
+        return self.__number_of_sim
+
+    @number_of_sim.setter
+    def number_of_sim(self, number_of_sim):
+        """
+        сеттер для приватного атрибута __number_of_sim класа Phone, который проверяет, что количество
+        сим-карт должно быть целым числом больше нуля.
+        """
+        if number_of_sim <= 0 or number_of_sim % 1 != 0:
+            print("Количество физических SIM-карт должно быть целым числом больше нуля.")
+        else:
+            self.__number_of_sim = number_of_sim
 
     def __repr__(self):
         """
