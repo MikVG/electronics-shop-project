@@ -40,4 +40,3 @@ class Keyboard(Item, MixinLang):
         Метод для инициализации класса
         """
         super().__init__(name, price, quantity)
-        self.__language = 'EN'
